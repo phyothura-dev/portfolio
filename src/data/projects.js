@@ -9,6 +9,25 @@ export const projects = [
     demoUrl: 'https://phyothura-blog.vercel.app/',
     img: 'projects/blog.png',
   },
+  {
+    title: 'Thura Note',
+    description:
+      'Vue 3 frontend for a markdown-based note-taking app with authentication and per-user note management, integrated with Flask backend APIs. This project was built with reference to the Edge Note repository.',
+    techStack: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Pinia', 'Markdown', 'Flask', 'JWT', 'Cloudflare Workers'],
+    category: 'Personal',
+    features: [
+      'Markdown-based note editor',
+      'Authentication & secure user sessions',
+      'Per-user note management',
+      'Responsive and minimal UI',
+      'Fast state management with Pinia',
+      'REST API integration with Flask backend',
+      'Cloudflare Workers deployment',
+    ],
+    githubUrl: 'https://github.com/phyothura-dev/thura-note',
+    demoUrl: 'https://dev-note.phyothura.workers.dev',
+    img: 'projects/thura-note.png',
+  },
 
   {
     title: 'Hotel Booking MVP',
@@ -132,6 +151,26 @@ export const projects = [
     githubUrl: '',
     demoUrl: 'https://hospital-management-fe-next-yu3u.vercel.app/login',
     img: 'projects/hospital.jpg',
+  },
+
+  {
+    title: 'Concert Tickets Booking API',
+    description: 'Scalable backend API for managing concerts, ticket bookings, reservations, and purchases with cloud-ready deployment architecture.',
+    techStack: ['Node.js', 'Express.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Redis', 'Docker', 'Nginx', 'AWS EC2', 'CI/CD', 'Swagger'],
+    category: 'Community',
+    features: [
+      'Concert & event management',
+      'Ticket inventory and stock control',
+      'Booking & payment workflow',
+      'Redis caching and rate limiting',
+      'Centralized error handling & logging',
+      'Production-ready Docker deployment',
+      'CI/CD pipeline with GitHub Actions',
+      'AWS EC2 server deployment with Nginx reverse proxy',
+    ],
+    githubUrl: '',
+    demoUrl: 'https://concert-tickets-api.int.yt/docs',
+    img: 'projects/concert-ticket-api.png',
   },
 
   {

@@ -26,3 +26,5 @@ dist-ssr
 .env
 .netlify
 .cursor
+.agent
+AGENTS.md
