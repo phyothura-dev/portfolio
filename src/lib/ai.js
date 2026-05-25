@@ -1,8 +1,69 @@
 import { extractText, getDocumentProxy } from 'unpdf';
 
 const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
+const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+const GROQ_MODEL = import.meta.env.VITE_GROQ_MODEL || 'openai/gpt-oss-20b';
+const GROQ_FALLBACK_MODEL = import.meta.env.VITE_GROQ_FALLBACK_MODEL || 'openai/gpt-oss-120b';
+const GEMINI_EMBEDDING_MODEL = import.meta.env.VITE_GEMINI_EMBEDDING_MODEL || 'gemini-embedding-2';
+const EMBEDDING_DIMENSION = Number(import.meta.env.VITE_EMBEDDING_DIMENSION || 2048);
 
-const callOpenRouter = async ({ prompt, model = 'deepseek/deepseek-v3.2', base64Data = null, isEmbedding = false }) => {
+const sanitizeAssistantText = (text = '') => {
+  return String(text)
+    .replace(/<think>[\s\S]*?<\/think>/gi, '')
+    .trim();
+};
+
+const createApiError = (provider, fallbackMessage, response, data) => {
+  const message = data?.error?.message || fallbackMessage;
+  const error = new Error(message);
+  error.provider = provider;
+  error.status = response?.status;
+  error.code = data?.error?.code || data?.error?.type;
+  return error;
+};
+
+const callGroq = async ({ prompt, model = GROQ_MODEL }) => {
+  if (!GROQ_API_KEY) {
+    const error = new Error('Groq API Key missing');
+    error.provider = 'groq';
+    error.code = 'missing_api_key';
+    throw error;
+  }
+
+  const body = {
+    model,
+    messages: [{ role: 'user', content: prompt }],
+  };
+
+  if (model.includes('qwen3')) {
+    body.reasoning_format = 'hidden';
+  }
+
+  const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${GROQ_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+
+  let data = null;
+  try {
+    data = await response.json();
+  } catch {
+    data = null;
+  }
+
+  if (!response.ok || data?.error) {
+    throw createApiError('groq', 'Groq request failed', response, data);
+  }
+
+  return sanitizeAssistantText(data?.choices?.[0]?.message?.content || '');
+};
+
+const callOpenRouter = async ({ prompt, model = 'openai/gpt-oss-120b:free', base64Data = null, isEmbedding = false }) => {
   if (!OPENROUTER_API_KEY) throw new Error('OpenRouter API Key missing');
 
   const endpoint = isEmbedding ? 'embeddings' : 'chat/completions';
@@ -27,9 +88,72 @@ const callOpenRouter = async ({ prompt, model = 'deepseek/deepseek-v3.2', base64
     body: JSON.stringify(body),
   });
 
-  const data = await response.json();
-  if (data.error) throw new Error(data.error.message || 'OpenRouter Error');
-  return isEmbedding ? data.data[0].embedding : data.choices?.[0]?.message?.content || '';
+  let data = null;
+  try {
+    data = await response.json();
+  } catch {
+    data = null;
+  }
+
+  if (!response.ok || data?.error) {
+    throw createApiError('openrouter', 'OpenRouter request failed', response, data);
+  }
+
+  return isEmbedding ? data.data[0].embedding : sanitizeAssistantText(data?.choices?.[0]?.message?.content || '');
+};
+
+const buildEmbeddingPrompt = (text, purpose = 'document') => {
+  const instruction =
+    purpose === 'query'
+      ? 'Represent this search query for retrieving relevant passages:'
+      : 'Represent this passage for retrieval:';
+  return `${instruction}\n${text}`;
+};
+
+const callGeminiEmbedding = async (text, purpose = 'document') => {
+  if (!GEMINI_API_KEY) {
+    const error = new Error('Gemini API Key missing');
+    error.provider = 'gemini';
+    error.code = 'missing_api_key';
+    throw error;
+  }
+
+  const embeddingInput = buildEmbeddingPrompt(text, purpose);
+
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_EMBEDDING_MODEL}:embedContent?key=${GEMINI_API_KEY}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: `models/${GEMINI_EMBEDDING_MODEL}`,
+      content: {
+        parts: [{ text: embeddingInput }],
+      },
+      outputDimensionality: EMBEDDING_DIMENSION,
+    }),
+  });
+
+  let data = null;
+  try {
+    data = await response.json();
+  } catch {
+    data = null;
+  }
+
+  if (!response.ok || data?.error) {
+    throw createApiError('gemini', 'Gemini embedding request failed', response, data);
+  }
+
+  const embedding = data?.embedding?.values;
+  if (!Array.isArray(embedding) || !embedding.length) {
+    const error = new Error('Invalid Gemini embedding response');
+    error.provider = 'gemini';
+    error.code = 'invalid_embedding_response';
+    throw error;
+  }
+
+  return embedding;
 };
 
 export const extractPdfText = async (file) => {
@@ -62,15 +186,12 @@ export const chunkText = (text, maxChars = 1000) => {
   return chunks;
 };
 
-export const getEmbedding = async (text) => {
+export const getEmbedding = async (text, options = {}) => {
+  const { purpose = 'document' } = options;
   try {
-    return await callOpenRouter({
-      prompt: text,
-      model: 'nvidia/llama-nemotron-embed-vl-1b-v2:free',
-      isEmbedding: true,
-    });
+    return await callGeminiEmbedding(text, purpose);
   } catch (error) {
-    throw new Error('Embedding failed');
+    throw new Error(error?.message || 'Embedding failed');
   }
 };
 
@@ -93,8 +214,14 @@ USER QUESTION:
 ${question}`;
 
   try {
-    return await callOpenRouter({ prompt });
+    return await callGroq({ prompt });
   } catch (error) {
-    return await callOpenRouter({ prompt, model: 'nvidia/nemotron-3-super-120b-a12b:free' });
+    if (error?.status === 400 && GROQ_FALLBACK_MODEL && GROQ_FALLBACK_MODEL !== GROQ_MODEL) {
+      try {
+        return await callGroq({ prompt, model: GROQ_FALLBACK_MODEL });
+      } catch {
+        return await callOpenRouter({ prompt });
+      }
+    }
   }
 };
