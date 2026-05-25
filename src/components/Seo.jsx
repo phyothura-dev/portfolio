@@ -56,7 +56,7 @@ export default function Seo({
           'https://www.instagram.com/vik83124',
           'https://t.me/KP_Vv',
           'https://www.linkedin.com/in/phyothura',
-          'https://github.com/K2P4',
+          'https://github.com/phyothura-dev',
         ],
       };
 
