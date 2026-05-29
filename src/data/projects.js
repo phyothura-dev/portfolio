@@ -7,7 +7,7 @@ export const projects = [
     features: ['User registration & login', 'Comment & Subscribe features', 'Admin blog management (CRUD)', 'Role-based permissions'],
     githubUrl: 'https://github.com/phyothura-dev/laravel-tech-blog',
     demoUrl: 'https://phyothura-blog.vercel.app/',
-    img: 'projects/blog.png',
+    img: 'projects/blog.webp',
   },
   {
     title: 'Thura Note',
@@ -26,7 +26,7 @@ export const projects = [
     ],
     githubUrl: 'https://github.com/phyothura-dev/thura-note',
     demoUrl: 'https://dev-note.phyothura.workers.dev',
-    img: 'projects/thura-note.png',
+    img: 'projects/thura-note.webp',
   },
 
   {
@@ -37,7 +37,7 @@ export const projects = [
     features: ['Browsing hotels', 'Checking availability', 'Booking hotel rooms', 'Admin panel', 'Responsive design', 'Role-based access'],
     githubUrl: 'https://github.com/phyothura-dev/hotel_booking_mvp',
     demoUrl: 'https://thura-hotel-booking.vercel.app/',
-    img: 'projects/hotel_booking.png',
+    img: 'projects/hotel_booking.webp',
   },
   {
     title: 'Restaurant POS',
@@ -47,7 +47,7 @@ export const projects = [
     features: ['Products management', 'Category management', 'Invoice & Printing', 'User Management', 'Reports', 'Responsive Design'],
     githubUrl: 'https://github.com/phyothura-dev/thura-resturant-pos',
     demoUrl: 'https://thura-resturant-pos.vercel.app/',
-    img: 'projects/resturant_pos.png',
+    img: 'projects/resturant_pos.webp',
   },
 
   {
@@ -58,7 +58,7 @@ export const projects = [
     features: ['Product listing & filtering', 'Shopping cart', 'Payment', 'User authentication', 'Admin dashboard', 'Order management'],
     // githubUrl: "https://github.com/phyothura-dev/nodejs_ecommerce",
     // demoUrl: "https://xperfume.netlify.app",
-    img: 'projects/ecommerce.png',
+    img: 'projects/ecommerce.webp',
   },
 
   {
@@ -68,7 +68,7 @@ export const projects = [
     techStack: ['React', 'Laravel', 'Tailwind CSS', 'zod', 'Tanstack Query', 'Vite', 'MySQL'],
     features: ['Admin management', 'volunteer registration & listing', 'Event management', 'Course management', 'Contact form'],
     demoUrl: 'https://mei-mm.org/',
-    img: 'projects/mei.png',
+    img: 'projects/mei.webp',
   },
 
   {
@@ -78,7 +78,17 @@ export const projects = [
     techStack: ['React', 'Laravel', 'Tailwind CSS', 'Tanstack Query', 'Vite', 'MySQL', 'Typescript', 'cPanel', 'shadcn/ui'],
     features: ['Course listing & enrollment', 'Video lectures & Classrooms', 'Progress tracking', 'User authentication', 'Admin UI', 'Student UI'],
     demoUrl: 'https://www.thecrystalacademy.org/login',
-    img: 'projects/learning_platform.png',
+    img: 'projects/learning_platform.webp',
+  },
+
+    {
+    title: 'Oh My Date',
+    description: 'A dating platform with profile management, matchmaking, real-time chat, and premium features for a modern and engaging user experience.',
+    category: 'Freelance',
+    techStack: ['Next.js', 'Laravel', 'Tailwind CSS', 'Tanstack Query', 'Docker', 'Pgsql', 'Typescript', 'VPS', 'shadcn/ui','Firebase','Cloudflare','Stripe'],
+    features: ['Dating profile management', 'Matchmaking algorithm', 'Real-time chat', 'User authentication', 'Responsive design', 'premium features', 'Admin panel'],
+    demoUrl: 'https://omd.newway-solution.com',
+    img: 'projects/omd.webp',
   },
 
   {
@@ -88,7 +98,7 @@ export const projects = [
     techStack: ['Wordpress', 'Elementor', 'PHP', 'MySQL', 'cPanel', 'HTML', 'CSS'],
     features: ['Blog  management', 'Plugins integration', 'Responsive design', 'SEO optimization', 'Contact form'],
     demoUrl: 'https://phfmyanmar.org/',
-    img: 'projects/phf.png',
+    img: 'projects/phf.webp',
   },
 
   {
@@ -97,7 +107,7 @@ export const projects = [
     category: 'Freelance',
     techStack: ['React', 'Typescript', 'Shadcn ui', 'Mysql', 'Tailwind CSS', 'Tanstack Query', 'Vite', 'Zod', 'React Hook Form', 'Laravel', 'Zustand'],
     features: ['Blog management', 'Category-based content', 'Responsive design', 'SEO optimization', 'Authentication & RBAC', 'Admin Panel'],
-    img: 'projects/lotoshin.png',
+    img: 'projects/lotoshin.webp',
   },
 
   {
@@ -117,7 +127,7 @@ export const projects = [
     ],
     githubUrl: '',
     demoUrl: '',
-    img: 'projects/hrm.png',
+    img: 'projects/hrm.webp',
   },
 
   {
@@ -128,7 +138,7 @@ export const projects = [
     features: ['BD Activity Reporting', 'Task Assignment & Tracking', 'User Roles & Permissions', 'Client Management', 'Dashboard & Analytics', 'Data Export to Excel & PDF', 'Meeting Scheduling'],
     githubUrl: '',
     demoUrl: '',
-    img: 'projects/hrm.png',
+    img: 'projects/hrm.webp',
   },
 
   {
@@ -139,7 +149,7 @@ export const projects = [
     features: ['Inquiry form', 'Vacancy listing', 'Logistic services', 'Responsive design'],
     githubUrl: '',
     demoUrl: 'https://nordictec.com/',
-    img: 'projects/nordic.png',
+    img: 'projects/nordic.webp',
   },
 
   {
@@ -150,7 +160,7 @@ export const projects = [
     features: ['Patient registration & history', 'Doctor & appointment scheduling', 'Pharmacy management', 'Medical records & prescriptions', 'Lab test reports', 'Role-based access'],
     githubUrl: '',
     demoUrl: 'https://hospital-management-fe-next-yu3u.vercel.app/login',
-    img: 'projects/hospital.jpg',
+    img: 'projects/hospital.webp',
   },
 
   {
@@ -170,7 +180,7 @@ export const projects = [
     ],
     githubUrl: '',
     demoUrl: 'https://concert-tickets-api.int.yt/docs',
-    img: 'projects/concert-ticket-api.png',
+    img: 'projects/concert-ticket-api.webp',
   },
 
   {
@@ -181,7 +191,7 @@ export const projects = [
     features: ['Property listing and management', 'search + filters (location, type)', 'role & permssion (agents, buyers)', 'Support Multi languages', 'Responsive UI'],
     githubUrl: '',
     demoUrl: '',
-    img: 'projects/pwelsar.png',
+    img: 'projects/pwelsar.webp',
   },
 
   {
@@ -192,7 +202,7 @@ export const projects = [
     features: ['Blog listing & details', 'Search functionality', 'Blog shop integration', 'Responsive UI design'],
     githubUrl: 'https://github.com/phyothura-dev/zoya-blog',
     demoUrl: 'https://zoya-blog.vercel.app/',
-    img: 'projects/zoya.png',
+    img: 'projects/zoya.webp',
   },
 
   {
@@ -203,7 +213,7 @@ export const projects = [
     features: ['User authentication', 'Create, update, delete tasks', 'Track task duration', 'Status-based dashboard (To-do, In Progress, Done)'],
     githubUrl: 'https://github.com/phyothura-dev/addToDoList-reactInteria_laravel',
     demoUrl: '',
-    img: 'projects/task.png',
+    img: 'projects/task.webp',
   },
 
   {
@@ -214,6 +224,6 @@ export const projects = [
     features: ['Take quizzes', 'Real-time scoring & feedback', 'Timer per question', 'Score summary at the end'],
     githubUrl: 'https://github.com/phyothura-dev/fancy_quiz_app_with_vueJs',
     demoUrl: 'https://phyothura-quiz-app.netlify.app/',
-    img: 'projects/quiz.png',
+    img: 'projects/quiz.webp',
   },
 ];
