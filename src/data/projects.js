@@ -108,6 +108,7 @@ export const projects = [
     techStack: ['React', 'Typescript', 'Shadcn ui', 'Mysql', 'Tailwind CSS', 'Tanstack Query', 'Vite', 'Zod', 'React Hook Form', 'Laravel', 'Zustand'],
     features: ['Blog management', 'Category-based content', 'Responsive design', 'SEO optimization', 'Authentication & RBAC', 'Admin Panel'],
     img: 'projects/lotoshin.webp',
+    demoUrl: 'https://lotoshinn.com'
   },
 
   {
