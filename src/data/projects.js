@@ -87,7 +87,7 @@ export const projects = [
     category: 'Freelance',
     techStack: ['Next.js', 'Laravel', 'Tailwind CSS', 'Tanstack Query', 'Docker', 'Pgsql', 'Typescript', 'VPS', 'shadcn/ui','Firebase','Cloudflare','Stripe'],
     features: ['Dating profile management', 'Matchmaking algorithm', 'Real-time chat', 'User authentication', 'Responsive design', 'premium features', 'Admin panel'],
-    demoUrl: 'https://omd.newway-solution.com',
+    demoUrl: 'https://ohmydate.asia',
     img: 'projects/omd.webp',
   },
 
