@@ -34,8 +34,8 @@ export const experiences = [
       'Contributed to educational and community-driven projects that support Myanmar youth through free learning opportunities, helping build impactful digital solutions for a non-profit organization.',
   },
   {
-    date: 'Feb 2025 - Current',
-    role: 'Community Contributor',
+    date: 'Joined:May,June,Feb',
+    role: 'Full Stack Developer',
     company: 'OPOM Developer Community',
     type: 'Community',
     isCurrent: true,
