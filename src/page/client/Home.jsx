@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import 'aos/dist/aos.css';
 import Social from '../../components/Social';
-import Service from './Service';
+// import Service from './Service';
 import Skill from './Skill';
+import WorkExperience from './WorkExperience';
 import Projects from './Projects';
 import Client from './Client';
 import Contact from './Contact';
@@ -89,7 +90,8 @@ export default function Home() {
       </div>
 
       {/* <About /> */}
-      <Service />
+      {/* <Service /> */}
+      <WorkExperience />
       <Skill />
       <Projects />
       <Client />

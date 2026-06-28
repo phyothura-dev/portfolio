@@ -1,10 +1,12 @@
 export const services = [
   {
-    title: "Interactive Frontend Development",
+    title: "Frontend Development",
     service: [
       "Creation of responsive websites",
-      "HTML,CSS,JavaScript,Vue&React",
-      "Website Performance",
+      "SEO Optimization ",
+      "UI/UX Design",
+
+      "User Experience Optimization",
       "Other Service & Activities",
     ],
   },
@@ -13,17 +15,20 @@ export const services = [
     service: [
       "Regular website updates",
       "Website performance tracking",
-      "24/7 support",
-      "Technical bug fixin",
+      "Security updates & Backup management",
+      "24/7 support & maintenance",
+      "Other Service & Activities",
     ],
   },
   {
-    title: "Interactive Backend Development",
+    title: "Backend & Server Development",
     service: [
       "Database Design & Management",
-      "RESTful & API Development",
-      "Performance Optimization",
+      "Server Management & API Development",
+      "Performance Optimization & Monitoring",
       "Secure Backend Development",
+      "Other Service & Activities",
     ],
-  },
+  }
+  
 ];
