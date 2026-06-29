@@ -38,7 +38,7 @@ export const experiences = [
     role: 'Full Stack Developer',
     company: 'OPOM Developer Community',
     type: 'Community',
-    isCurrent: true,
+    isCurrent: false,
     summary:
       'Collaborated with community developers to build practical applications from planning to deployment, delivering products that are ready for real end-user usage while sharing knowledge within the community.',
   },

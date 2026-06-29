@@ -7,10 +7,10 @@ export const NavList = [
   //   id: 1,
   //   name: 'about',
   // },
-  // {
-  //   id: 2,
-  //   name: 'service',
-  // },
+  {
+    id: 2,
+    name: 'experience',
+  },
   {
     id: 3,
     name: 'projects',
