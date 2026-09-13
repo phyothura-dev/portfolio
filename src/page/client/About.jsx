@@ -7,8 +7,8 @@ export default function About() {
         <div data-aos="fade-right" className="flex flex-col gap-6">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-black">Building useful, reliable software</h2>
           <p className="text-gray-700 leading-relaxed tracking-tight">
-            Hello, I am <span className="font-semibold text-primary">Thura</span>. I’m currently working as a Junior Software Developer at a logistics company. I focus on building web applications and backend
-            services that streamline operations and deliver measurable value. I care about code quality, thoughtful UX, and maintainable systems.
+            Hello, I am <span className="font-semibold text-primary">Thura</span>. I’m currently working as a Senior IT Associate, System Integration at a logistics company. I focus on system integrations, Odoo ERP, and building web applications
+            that streamline operations and deliver measurable value. I care about code quality, thoughtful UX, and maintainable systems.
           </p>
 
           {/* Quick stats */}

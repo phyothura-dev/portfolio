@@ -1,10 +1,19 @@
 export const experiences = [
   {
-    date: '2025 - Current',
-    role: 'Junior Software Developer',
+    date: '2025-Aug - Current',
+    role: 'Senior IT Associate, System Integration',
     company: 'Nordic Group Logistics Ltd',
     type: 'Full Time',
     isCurrent: true,
+    summary:
+      'Leading and implementing system integration projects with a primary focus on Odoo ERP. Developing custom integrations, connecting enterprise systems via APIs, and automating business workflows to enhance operational efficiency.',
+  },
+  {
+    date: '2025-Feb - 2025-July',
+    role: 'Junior Software Developer',
+    company: 'Nordic Group Logistics Ltd',
+    type: 'Full Time',
+    isCurrent: false,
     summary:
       'Developing and maintaining HRM, BDM (CRM-like), Reporting, and Company Website systems using Laravel and Vue.js. Delivering scalable business solutions with a focus on performance and maintainability.',
   },

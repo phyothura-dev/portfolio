@@ -11,7 +11,7 @@ import useTypingEffect from '../../hooks/useTypingEffect';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  const text = useTypingEffect([' Software Developer']);
+  const text = useTypingEffect(['System Integrator', 'Software Developer']);
 
   useEffect(() => {
     let isMounted = true;
@@ -53,8 +53,8 @@ export default function Home() {
           <h1 className="mt-1 text-3xl md:text-5xl font-bold tracking-tight text-center lg:text-left">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">PHYO THURA</span>
           </h1>
-          <h2 className="mt-2 text-xl md:text-2xl font-semibold tracking-tight text-center lg:text-left dark:text-slate-100">
-            Junior <span className="text-slate-800 dark:text-slate-200">{text}</span>
+          <h2 className="mt-2 text-xl md:text-2xl font-semibold tracking-tight text-center lg:text-left dark:text-slate-100 min-h-[2rem]">
+            <span className="text-slate-800 dark:text-slate-200">{text || '\u00A0'}</span>
           </h2>
 
           <p className="mt-4 text-sm md:text-base text-center lg:text-left text-slate-600 dark:text-slate-300 leading-relaxed md:leading-7 max-w-2xl">
